@@ -2,7 +2,8 @@
 
 {% get_ct_pk object as ct_pk %}
 
-<div class="btn-group btn-group-lg">
-    <a class="btn btn-raised btn-success" href="{% url "qa:vote" type="up" ct_pk=ct_pk pk=object.pk %}">{{ object.votes.upvotes.count }}</a>
-    <a class="btn btn-raised btn-danger" href="{% url "qa:vote" type="down" ct_pk=ct_pk pk=object.pk %}">{{ object.votes.downvotes.count }}</a>
+<div class="btn-group btn-group-raised btn-group-lg">
+    <a class="btn" href="{% url "qa:vote" type="up" ct_pk=ct_pk pk=object.pk %}"><i class="glyphicon glyphicon-chevron-up"></i></a>
+    <a class="btn {% if object.votes_total > 0 %}btn-success{% else %}btn-danger{% endif %}"><strong>{{ object.votes_total }}</strong></a>
+    <a class="btn" href="{% url "qa:vote" type="down" ct_pk=ct_pk pk=object.pk %}"><i class="glyphicon glyphicon-chevron-down"></i></a>
 </div>

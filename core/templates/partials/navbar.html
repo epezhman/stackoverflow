@@ -2,7 +2,7 @@
 {% load qa_tags %}
 
 <div class="navbar navbar-primary">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
                 <span class="icon-bar"></span>
@@ -31,18 +31,11 @@
                     <span class="material-input"></span></div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url "admin:index" %}">{% trans "Administration" %}</a></li>
-                <li class="dropdown">
-                    <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-                        <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                    </ul>
-                </li>
+                {% if not request.user.is_authenticated %}
+                    <li><a href="{% url "admin:index" %}">{% trans "Log in" %}</a></li>
+                {% elif request.user.is_staff %}
+                    <li><a href="{% url "admin:index" %}">{% trans "Administration" %}</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

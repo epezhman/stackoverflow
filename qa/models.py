@@ -24,6 +24,9 @@ class QAModel(CreationModel):
 
     votes = GenericRelation('Vote')
 
+    def votes_total(self):
+        return self.votes.upvotes().count() - self.votes.downvotes().count()
+
     class Meta:
         abstract = True
 

@@ -3,11 +3,13 @@
 
 {% for answer in answers %}
     <div class="panel {% if answer.marked_as_answer %}panel-success{% else %}panel-default{% endif %}">
-    {% if answer.marked_as_answer %}
-        <div class="panel-heading">
-          <h3 class="panel-title"><i class="glyphicon glyphicon-check"></i> {% trans "Accepted Answer" %}</h3>
-        </div>
-    {% endif %}
+    <div class="panel-heading">
+      <h3 class="panel-title">
+          <div class="pull-right"><span class="badge">{{ answer.created }}</span></div>
+          {% if answer.marked_as_answer %}<i class="glyphicon glyphicon-check"></i> {% trans "Accepted Answer" %}:{% endif %}
+          {{ answer.author }}
+      </h3>
+    </div>
     <div class="panel-body">
         <a name="answer-{{ answer.pk }}"></a>
         <div class="pull-right">

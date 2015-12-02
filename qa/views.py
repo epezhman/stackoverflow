@@ -9,7 +9,10 @@ from django.views.generic.base import RedirectView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView
 
+from rest_framework.viewsets import ModelViewSet
+
 from . import models, forms
+from .serializers import TagSerializer
 
 
 class QuestionDetailView(FormView):
@@ -55,3 +58,8 @@ class VoteView(RedirectView):
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
+
+
+class TagViewSet(ModelViewSet):
+    queryset = models.Tag.objects.all()
+    serializer_class = TagSerializer

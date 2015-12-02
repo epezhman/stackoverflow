@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'markdown_deux',
     'crispy_forms',
     'bootstrap3',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -131,3 +132,9 @@ STATIC_URL = '/static/'
 
 # Third party modules
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
