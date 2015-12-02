@@ -1,0 +1,8 @@
+{
+  "name": "stackoverflow",
+  "version": "0.0.3",
+  "dependencies": {
+    "bootstrap-material-design": "~0.5.1"
+  },
+  "private": true
+}

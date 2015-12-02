@@ -1,0 +1,28 @@
+{
+  "name": "motius-flow",
+  "version": "1.0.0",
+  "description": "Check the main wiki page for installation instructions",
+  "private": true,
+  "main": "Gulpfile.js",
+  "dependencies": {
+    "bower": "^1.6.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-gzip": "^1.2.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "gulp-watch": "^4.3.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.motius.de:internal/motius-flow.git"
+  },
+  "author": "Motius GmbH",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load markdown_deux_tags %}
+
+{% block content_title %}{% blocktrans %}Tag {{ object }}{% endblocktrans %}{% endblock %}
+
+{% block content %}
+    {% include "qa/partials/question_list.html" with questions=object.questions.all %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% load qa_tags %}
+
+{% get_ct_pk object as ct_pk %}
+
+<div class="btn-group btn-group-lg">
+    <a class="btn btn-raised btn-success" href="{% url "qa:vote" type="up" ct_pk=ct_pk pk=object.pk %}">{{ object.votes.upvotes.count }}</a>
+    <a class="btn btn-raised btn-danger" href="{% url "qa:vote" type="down" ct_pk=ct_pk pk=object.pk %}">{{ object.votes.downvotes.count }}</a>
+</div>

@@ -1,0 +1,49 @@
+{% load i18n %}
+{% load qa_tags %}
+
+<div class="navbar navbar-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url "frontend:landing" %}">{% trans "MotiusFlow" %}</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-inverse-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url "frontend:landing" %}">Overview</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" data-target="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Browse Tags" %}
+                        <strong class="caret"></strong></a>
+                    <ul class="dropdown-menu">
+                        {% get_top_tags as tags %}
+                        {% for tag in tags %}
+                            <li><a href="{{ tag.get_absolute_url }}">{{ tag }} <span class="badge">{{ tag.questions.count }}</span></a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" action="{% url "frontend:landing" %}">
+                <div class="form-group is-empty">
+                    <input class="form-control col-sm-8" name="q" value="{{ request.GET.q }}" placeholder="Search" type="text">
+                    <span class="material-input"></span></div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url "admin:index" %}">{% trans "Administration" %}</a></li>
+                <li class="dropdown">
+                    <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+                        <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)">Action</a></li>
+                        <li><a href="javascript:void(0)">Another action</a></li>
+                        <li><a href="javascript:void(0)">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:void(0)">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

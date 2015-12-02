@@ -1,0 +1,11 @@
+{% for question in questions %}
+    <div class="panel panel-default">
+    <div class="panel-body">
+        <div class="pull-right">
+        {% include "qa/partials/votes.html" with object=question %}
+        </div>
+        <h3 class="no-margin"><a href="{{ question.get_absolute_url }}">{{ question }}</a></h3>
+        <p>{{ question.body|truncatewords:50 }}</p>
+    </div>
+    </div>
+{% endfor %}
