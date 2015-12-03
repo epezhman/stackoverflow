@@ -1,0 +1,203 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-03 11:17+0000\n"
+"PO-Revision-Date: 2015-12-03 11:18+0000\n"
+"Last-Translator: b'  <>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.7.8\n"
+
+#: core/settings/base.py:122
+msgid "German"
+msgstr "Deutsch"
+
+#: core/settings/base.py:123
+msgid "English"
+msgstr "Englisch"
+
+#: core/templates/base.html:16 core/templates/partials/navbar.html.py:12
+msgid "MotiusFlow"
+msgstr ""
+
+#: core/templates/partials/navbar.html:16
+msgid "Overview"
+msgstr "Übersicht"
+
+#: core/templates/partials/navbar.html:18
+msgid "Browse Tags"
+msgstr "Tags"
+
+#: core/templates/partials/navbar.html:30
+msgid "Search"
+msgstr "Suchen"
+
+#: core/templates/partials/navbar.html:35
+#: core/templates/registration/login.html:5
+#: core/templates/registration/login.html:15
+msgid "Log in"
+msgstr "Einloggen"
+
+#: core/templates/partials/navbar.html:38
+msgid "Administration"
+msgstr ""
+
+#: core/templates/partials/navbar.html:40
+msgid "Log out"
+msgstr "Ausloggen"
+
+#: frontend/templates/frontend/landing.html:5
+msgid "Welcome to MotiusFlow"
+msgstr "Willkommen auf MotiusFlow"
+
+#: frontend/templates/frontend/landing.html:13
+#, python-format
+msgid "No results for \"%(search_term)s\" found!"
+msgstr "Keine Ergebnisse für \"%(search_term)s\" gefunden!"
+
+#: frontend/templates/frontend/landing.html:14
+msgid "Clear"
+msgstr "Zurücksetzen"
+
+#: frontend/templates/frontend/landing.html:17
+msgid "No questions where added, yet!"
+msgstr "Derzeit gibt es noch keine Fragen."
+
+#: frontend/templates/frontend/landing.html:24
+#: qa/templates/qa/question_form.html:6
+msgid "Ask a Question"
+msgstr "Frage stellen"
+
+#: qa/models.py:13
+msgid "Author"
+msgstr "Autor"
+
+#: qa/models.py:14
+msgid "Creation Date"
+msgstr ""
+
+#: qa/models.py:15
+msgid "Update Date"
+msgstr ""
+
+#: qa/models.py:22
+msgid "Title"
+msgstr ""
+
+#: qa/models.py:23
+msgid "Body"
+msgstr ""
+
+#: qa/models.py:24 qa/models.py:43
+msgid "Slug"
+msgstr ""
+
+#: qa/models.py:42
+msgid "Name"
+msgstr ""
+
+#: qa/models.py:53
+msgid "Tag"
+msgstr ""
+
+#: qa/models.py:54 qa/templates/qa/question_detail.html.py:26
+msgid "Tags"
+msgstr ""
+
+#: qa/models.py:68
+msgid "Question"
+msgstr "Frage"
+
+#: qa/models.py:69
+msgid "Questions"
+msgstr "Fragen"
+
+#: qa/models.py:74
+msgid "Marked as Answer"
+msgstr "Als Antwort markiert"
+
+#: qa/models.py:85
+msgid "Answer"
+msgstr ""
+
+#: qa/models.py:86
+msgid "Answers"
+msgstr ""
+
+#: qa/models.py:99
+msgid "Upvote"
+msgstr ""
+
+#: qa/models.py:100
+msgid "Downvote"
+msgstr ""
+
+#: qa/models.py:102
+msgid "Type"
+msgstr ""
+
+#: qa/models.py:114
+msgid "Vote"
+msgstr ""
+
+#: qa/models.py:115
+msgid "Votes"
+msgstr ""
+
+#: qa/templates/qa/partials/answer_list.html:9
+msgid "Accepted Answer"
+msgstr "Akzeptierte Antwort"
+
+#: qa/templates/qa/question_detail.html:23
+#: qa/templates/qa/question_form.html:6
+msgid "Update Question"
+msgstr "Antwort aktualisieren"
+
+#: qa/templates/qa/question_detail.html:40
+#, python-format
+msgid ""
+"\n"
+"        One Answer\n"
+"        "
+msgid_plural ""
+"\n"
+"        %(counter)s Answers\n"
+"        "
+msgstr[0] ""
+"\n"
+"Eine Antwort"
+msgstr[1] ""
+"\n"
+" %(counter)s Antworten"
+
+#: qa/templates/qa/question_detail.html:50
+msgid "Add Answer"
+msgstr "Antworten"
+
+#: qa/templates/qa/question_detail.html:56
+msgid "Submit Answer"
+msgstr "Antwort anlegen"
+
+#: qa/templates/qa/question_form.html:14
+msgid "Submit"
+msgstr "Abschicken"
+
+#: qa/templates/qa/tag_detail.html:6
+#, python-format
+msgid "Browsing %(object)s"
+msgstr "Fragen für %(object)s"
+
+#: qa/views.py:82
+msgid "You already voted!"
+msgstr ""

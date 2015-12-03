@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+from django.utils.translation import ugettext_lazy as _
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(BASE_DIR)
@@ -24,7 +26,7 @@ PROJECT_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = '4_dup!)v)zffqq=j9-irjpc2sacvle@+e^kk2meu2i*2!^%tdg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'bootstrap3',
     'rest_framework',
+    'rosetta',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -57,6 +60,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -113,7 +117,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'de'
+
+LANGUAGES = [
+    ('de', _('German')),
+    ('en', _('English')),
+]
 
 TIME_ZONE = 'UTC'
 
@@ -122,6 +131,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LOCALE_PATHS = [
+    os.path.join(PROJECT_DIR, 'locale/')
+]
 
 
 # Static files (CSS, JavaScript, Images)
