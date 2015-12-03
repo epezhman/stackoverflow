@@ -2,7 +2,12 @@
     <div class="panel panel-default">
     <div class="panel-body">
         <div class="pull-right">
-        {% include "qa/partials/votes.html" with object=question %}
+            <div class="btn-group btn-group-raised btn-group-lg">
+                <a class="btn btn-default" href="{{ question.get_absolute_url }}#answers">
+                    <i class="glyphicon glyphicon-comment"></i> {{ question.answers.count }}
+                </a>
+            </div>
+            {% include "qa/partials/votes.html" with object=question %}
         </div>
         <h3 class="no-margin"><a href="{{ question.get_absolute_url }}">{{ question }}</a></h3>
         {% if question.tags.count %}

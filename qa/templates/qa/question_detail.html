@@ -22,12 +22,27 @@
         {% if question.author == request.user %}
             <a class="btn btn-raised btn-primary btn-block no-margin" href="{% url "qa:question_update" question.slug %}">{% trans "Update Question" %}</a>
         {% endif %}
+        {% if question.tags.count %}
+            <h3>{% trans "Tags" %}</h3>
+            <p>
+            {% for tag in question.tags.all %}
+                <a class="label" href="{% url "qa:tag_detail" tag.slug %}">{{ tag }}</a>
+            {% endfor %}
+            </p>
+        {% endif %}
     </div>
     </div>
 
     {% if question.answers.count %}
         <hr />
-        <h3>{% trans "Answers" %}</h3>
+        <a name="answers"></a>
+        <h3>
+        {% blocktrans count counter=question.answers.count %}
+        One Answer
+        {% plural %}
+        {{ counter }} Answers
+        {% endblocktrans %}
+        </h3>
         {% include "qa/partials/answer_list.html" with answers=question.answers.all %}
     {% endif %}
 
