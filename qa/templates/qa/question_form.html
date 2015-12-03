@@ -3,7 +3,7 @@
 {% load i18n static %}
 {% load crispy_forms_tags %}
 
-{% block content_title %}{% if form.instance.pk %}{% trans "Update Question" %}{% else %}{% trans "Create Question" %}{% endif %}{% endblock %}
+{% block content_title %}{% if form.instance.pk %}{% trans "Update Question" %}{% else %}{% trans "Ask a Question" %}{% endif %}{% endblock %}
 
 {% block content %}
     <form method="post">
