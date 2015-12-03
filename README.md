@@ -14,3 +14,12 @@ Installation
     
     # Build static assets
     gulp sass
+
+Features
+--------
+
+* Django 1.9 (new admin interface)
+* Multilanguage support (Rosetta)
+* API
+* Class-based views
+* `GenericForeignKey` for Votes
