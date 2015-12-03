@@ -4,9 +4,28 @@ $icon-font-path: "/static/bower_components/bootstrap-sass/assets/fonts/bootstrap
 @import "../bower_components/bootstrap-material-design/sass/_variables";
 @import "../bower_components/bootstrap-material-design/sass/_mixins";
 @import "../bower_components/bootstrap-material-design/sass/_icons-material-design";
-@import "../bower_components/bootstrap-material-design/sass/_shadows";  // these are mixins only, and must be placed at the top before use (sass requiremnt)
+@import "../bower_components/bootstrap-material-design/sass/_shadows";
 @import "../bower_components/bootstrap-material-design/sass/_bootstrap-material-design";
+
+@import "../bower_components/select2/src/scss/core";
 
 .no-margin {
   margin-top: 0;
+}
+
+#id_body {
+  font-family: $font-family-monospace;
+}
+
+.select2-container--default .select2-selection--multiple {
+  background-color: #FFF;
+  border: none;
+  border-bottom: 1px solid $input-border;
+  border-radius: 0;
+  cursor: text;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: none;
+  border-bottom: 1px solid $input-border;
 }

@@ -7,8 +7,7 @@ from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext as _
 from django.views.generic.base import RedirectView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import FormView
-
+from django.views.generic.edit import FormView, UpdateView, CreateView
 from rest_framework.viewsets import ModelViewSet
 
 from . import models, forms
@@ -32,6 +31,35 @@ class QuestionDetailView(FormView):
         instance.author = self.request.user
         instance.question = self.get_question()
         instance.save()
+        return HttpResponseRedirect(instance.get_absolute_url())
+
+
+class QuestionCreateView(CreateView):
+    form_class = forms.QuestionForm
+    template_name = 'qa/question_form.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        instance.author = self.request.user
+        instance.save()
+        return HttpResponseRedirect(instance.get_absolute_url())
+
+
+class QuestionUpdateView(UpdateView):
+    form_class = forms.QuestionForm
+    model = models.Question
+    template_name = 'qa/question_form.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        instance = form.save()
         return HttpResponseRedirect(instance.get_absolute_url())
 
 

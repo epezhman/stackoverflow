@@ -5,6 +5,13 @@
         {% include "qa/partials/votes.html" with object=question %}
         </div>
         <h3 class="no-margin"><a href="{{ question.get_absolute_url }}">{{ question }}</a></h3>
+        {% if question.tags.count %}
+            <p>
+            {% for tag in question.tags.all %}
+                <a class="label" href="{% url "qa:tag_detail" tag.slug %}">{{ tag }}</a>
+            {% endfor %}
+            </p>
+        {% endif %}
         <p>{{ question.body|truncatewords:50 }}</p>
     </div>
     </div>

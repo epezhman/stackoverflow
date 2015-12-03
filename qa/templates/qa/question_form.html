@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load i18n static %}
+{% load crispy_forms_tags %}
+
+{% block content_title %}{% if form.instance.pk %}{% trans "Update Question" %}{% else %}{% trans "Create Question" %}{% endif %}{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="row"><div class="col-md-6">{{ form.title|as_crispy_field }}</div></div>
+        <div class="row"><div class="col-md-12">{{ form.body|as_crispy_field }}</div></div>
+        <div class="row"><div class="col-md-6">{{ form.tags|as_crispy_field }}</div></div>
+        <button type="submit" class="btn btn-raised btn-primary">{% trans "Submit" %}</button>
+    </form>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static 'bower_components/select2/dist/js/select2.full.min.js' %}"></script>
+    <script src="{% static 'js/question-form.js' %}"></script>
+{% endblock js %}

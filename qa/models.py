@@ -5,6 +5,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelatio
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -20,9 +21,15 @@ class CreationModel(models.Model):
 class QAModel(CreationModel):
     title = models.CharField(_('Title'), max_length=250)
     body = models.TextField(_('Body'))
-    slug = models.SlugField(_('Slug'))
+    slug = models.SlugField(_('Slug'), unique=True)
 
     votes = GenericRelation('Vote')
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def votes_total(self):
         return self.votes.upvotes().count() - self.votes.downvotes().count()
@@ -36,7 +43,7 @@ class Tag(CreationModel):
     slug = models.SlugField(_('Slug'))
 
     def __str__(self):
-        return self.name
+        return "#{tag}".format(tag=self.slug)
 
     def get_absolute_url(self):
         return reverse('qa:tag_detail', args=[self.slug])
@@ -48,7 +55,7 @@ class Tag(CreationModel):
 
 
 class Question(QAModel):
-    tags = models.ManyToManyField(Tag, related_name='questions')
+    tags = models.ManyToManyField(Tag, related_name='questions', blank=True)
 
     def __str__(self):
         return self.title

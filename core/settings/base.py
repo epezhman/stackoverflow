@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(BASE_DIR)
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start deve<pment settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -129,6 +129,8 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/'
 
 # Third party modules
 CRISPY_TEMPLATE_PACK = 'bootstrap3'

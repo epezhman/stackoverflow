@@ -5,16 +5,23 @@
 {% block content_title %}{% trans "Welcome to MotiusFlow" %}{% endblock %}
 
 {% block content %}
-    {% if not questions %}
-        {% if request.GET.q %}
-            <div class="alert alert-info">
-                <p>{% blocktrans with search_term=request.GET.q %}No results for "{{ search_term }}" found!{% endblocktrans %}</p>
-                <p><a href="{% url "frontend:landing" %}">{% trans "Clear" %}</a></p>
-            </div>
+    <div class="row">
+    <div class="col-md-9">
+        {% if not questions %}
+            {% if request.GET.q %}
+                <div class="alert alert-info">
+                    <p>{% blocktrans with search_term=request.GET.q %}No results for "{{ search_term }}" found!{% endblocktrans %}</p>
+                    <p><a href="{% url "frontend:landing" %}">{% trans "Clear" %}</a></p>
+                </div>
+            {% else %}
+                <div class="alert alert-info">{% trans "No questions where added, yet!" %}</div>
+            {% endif %}
         {% else %}
-            <div class="alert alert-info">{% trans "No questions where added, yet!" %}</div>
+        {% include "qa/partials/question_list.html" with questions=questions %}
         {% endif %}
-    {% else %}
-    {% include "qa/partials/question_list.html" with questions=questions %}
-    {% endif %}
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-primary btn-raised btn-block no-margin" href="{% url "qa:question_create" %}">{% trans "Create Question" %}</a>
+    </div>
+    </div>
 {% endblock %}

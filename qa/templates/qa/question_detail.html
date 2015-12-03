@@ -16,7 +16,14 @@
 {% endblock %}
 
 {% block content %}
-    {{ question.body|markdown }}
+    <div class="row">
+    <div class="col-md-9">{{ question.body|markdown }}</div>
+    <div class="col-md-3">
+        {% if question.author == request.user %}
+            <a class="btn btn-raised btn-primary btn-block no-margin" href="{% url "qa:question_update" question.slug %}">{% trans "Update Question" %}</a>
+        {% endif %}
+    </div>
+    </div>
 
     {% if question.answers.count %}
         <hr />
